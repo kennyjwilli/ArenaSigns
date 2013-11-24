@@ -2,6 +2,7 @@
 package net.arcanerealm.arenasigns.framework;
 
 import net.vectorgaming.varenas.ArenaManager;
+import net.vectorgaming.varenas.ArenaPlayerManager;
 import net.vectorgaming.varenas.framework.Arena;
 import org.apache.commons.lang3.text.WordUtils;
 import org.bukkit.ChatColor;
@@ -46,9 +47,16 @@ public class ArenaSign extends SignWrapper
         {
             this.setLine(1, ChatColor.GREEN+WordUtils.capitalize(map));
             Arena arena = ArenaManager.getArena(arenaName);
-            int players = arena.getPlayers().size();
+            int playersInArena;
+            if(ArenaPlayerManager.getPlayersInArena(arenaName) == null)
+            {
+                playersInArena = 0;
+            }else
+            {
+                playersInArena = ArenaPlayerManager.getPlayersInArena(arenaName).size();
+            }
             int maxPlayers = arena.getSettings().getMaxPlayers();
-            this.setLine(3, players+"/"+maxPlayers);
+            this.setLine(3, playersInArena+"/"+maxPlayers);
         }
         update();
     }
