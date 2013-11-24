@@ -27,12 +27,6 @@ public class PlayerInteractUser implements Listener
         }
         Player p = event.getPlayer();
         
-        if(ArenaPlayerManager.isPlayerInArena(p))
-        {
-            return;
-        }
-        
-        
         if(!ArenaSignsAPI.isSignAtLocation(event.getClickedBlock().getLocation()))
         {
             return;
