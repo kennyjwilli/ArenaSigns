@@ -1,0 +1,8 @@
+name: ArenaSigns
+main: net.arcanerealm.arenasigns.ArenaSigns
+version: 0.1
+author: Kenny Williams
+website: http://arcanerealm.net
+description: Allows creation of signs for VArenas
+
+depend: [VCore, VArenas, ZoneWorld, ZoneCore, ArcaneLib]
