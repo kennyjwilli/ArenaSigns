@@ -4,6 +4,7 @@ package net.arcanerealm.arenasigns.listeners;
 import net.arcanerealm.arenasigns.ArenaSignsAPI;
 import net.arcanerealm.arenasigns.framework.ArenaSign;
 import net.vectorgaming.varenas.ArenaManager;
+import net.vectorgaming.varenas.framework.Arena;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -42,7 +43,13 @@ public class PlayerInteractUser implements Listener
             p.sendMessage(ChatColor.RED+"This arena is not currently running.");
             return;
         }
-        
-        ArenaManager.getArena(sign.getArenaName()).onJoin(p);
+        Arena arena = ArenaManager.getArena(sign.getArenaName());
+        if(arena.canJoin(p))
+        {
+            ArenaManager.getArena(sign.getArenaName()).onJoin(p);
+        }else
+        {
+            p.sendMessage(ChatColor.RED+"You cannot join at this time.");
+        }
     }
 }
