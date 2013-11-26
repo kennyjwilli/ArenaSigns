@@ -1,10 +1,12 @@
 
 package net.arcanerealm.arenasigns.framework;
 
+import net.arcanerealm.arenasigns.ArenaSignsAPI;
 import net.vectorgaming.varenas.ArenaManager;
 import net.vectorgaming.varenas.ArenaPlayerManager;
 import net.vectorgaming.varenas.framework.Arena;
 import org.apache.commons.lang3.text.WordUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Sign;
 
@@ -58,7 +60,13 @@ public class ArenaSign extends SignWrapper
             int maxPlayers = arena.getSettings().getMaxPlayers();
             this.setLine(3, playersInArena+"/"+maxPlayers);
         }
-        update();
+        Bukkit.getScheduler().scheduleSyncDelayedTask(ArenaSignsAPI.getPlugin(), new Runnable()
+        {
+            public void run()
+            {
+                update(true);
+            }
+        }, 1L);
     }
     
     /**
