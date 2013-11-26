@@ -4,7 +4,6 @@ package net.arcanerealm.arenasigns.listeners;
 import net.arcanerealm.arenasigns.ArenaSignsAPI;
 import net.arcanerealm.arenasigns.framework.ArenaSign;
 import net.vectorgaming.varenas.ArenaManager;
-import net.vectorgaming.varenas.ArenaPlayerManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -26,6 +25,11 @@ public class PlayerInteractUser implements Listener
             return;
         }
         Player p = event.getPlayer();
+        
+        if(event.getClickedBlock() == null)
+        {
+            return;
+        }
         
         if(!ArenaSignsAPI.isSignAtLocation(event.getClickedBlock().getLocation()))
         {
