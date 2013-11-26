@@ -17,6 +17,7 @@ public class ArenaSignsBase extends VCommand
     {
         super("arenasigns", ArenaSignsAPI.getPlugin());
         addSubCommand(new ArenaSignsCreate());
+        addSubCommand(new ArenaSignsUpdate());
     }
     
     @Override
