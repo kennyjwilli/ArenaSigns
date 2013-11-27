@@ -32,6 +32,7 @@ public class ArenaSign
         this.loc = sign.getLocation();
         this.map = map;
         this.arenaName = arena;
+        update();
     }
     
     /**
@@ -70,7 +71,7 @@ public class ArenaSign
         return map;
     }
     
-    public void update()
+    public final void update()
     {
         loc.getChunk().load();
         final Sign sign = (Sign) loc.getBlock().getState();
