@@ -43,7 +43,9 @@ public class PlayerInteractUser implements Listener
             p.sendMessage(ChatColor.RED+"This arena is not currently running.");
             return;
         }
+        
         Arena arena = ArenaManager.getArena(sign.getArenaName());
+        
         if(arena.canJoin(p))
         {
             ArenaManager.getArena(sign.getArenaName()).onJoin(p);
