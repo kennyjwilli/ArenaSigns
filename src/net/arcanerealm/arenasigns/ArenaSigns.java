@@ -45,6 +45,7 @@ public class ArenaSigns extends VertexPlugin
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new PlayerInteractSignCreation(), this);
         pm.registerEvents(new PlayerInteractUser(), this);
+        pm.registerEvents(new BlockBreakListener(), this);
     }
 
     @Override
