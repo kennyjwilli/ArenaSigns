@@ -7,7 +7,6 @@ import net.vectorgaming.vcore.framework.VertexAPI;
 import net.vectorgaming.vcore.framework.VertexPlugin;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
-import org.bukkit.block.Sign;
 
 /**
  *
@@ -30,8 +29,7 @@ public class ArenaSignsAPI extends VertexAPI
      */
     public static void createSign(Block block, String map, String arena)
     {
-        System.out.println(map+" "+arena+"10");
-        signs.add(new ArenaSign((Sign) block.getState(), map, arena));
+        signs.add(new ArenaSign(block.getLocation(), map, arena));
     }
     
     /**
@@ -91,7 +89,7 @@ public class ArenaSignsAPI extends VertexAPI
     {
         for(ArenaSign sign : getAllSigns())
         {
-            sign.updateSign();
+            sign.update();
         }
     }
     
@@ -103,7 +101,7 @@ public class ArenaSignsAPI extends VertexAPI
     {
         for(ArenaSign sign : getSignsForArena(arena))
         {
-            sign.updateSign();
+            sign.update();
         }
     }
     
