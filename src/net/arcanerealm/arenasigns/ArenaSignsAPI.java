@@ -43,6 +43,15 @@ public class ArenaSignsAPI extends VertexAPI
         createSign(loc.getBlock(), map, arena);
     }
     
+    /**
+     * Deletes an arena sign from the given location
+     * @param loc Location of the sign
+     */
+    public static void deleteSign(Location loc)
+    {
+        getAllSigns().remove(getSignAtLocation(loc));
+    }
+    
     public static ArenaSign getSignAtLocation(Location loc)
     {
         for(ArenaSign sign : getAllSigns())
