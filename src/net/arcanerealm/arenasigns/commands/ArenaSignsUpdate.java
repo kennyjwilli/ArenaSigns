@@ -19,6 +19,12 @@ public class ArenaSignsUpdate extends SubCommand
     @Override
     public void run(CommandSender cs, String[] args)
     {
+        if(args.length == 1)
+        {
+            ArenaSignsAPI.updateAllArenaSigns(args[0]);
+            cs.sendMessage("Done");
+            return;
+        }
         ArenaSignsAPI.updateAllSigns();
     }
 
@@ -49,7 +55,7 @@ public class ArenaSignsUpdate extends SubCommand
     @Override
     public Integer getMaxArgsLength()
     {
-        return 0;
+        return 1;
     }
 
     @Override
