@@ -4,7 +4,6 @@ package net.arcanerealm.arenasigns;
 import net.arcanerealm.arenasigns.commands.ArenaSignsBase;
 import net.arcanerealm.arenasigns.listeners.*;
 import net.arcanerealm.arenasigns.util.SLAPI;
-import net.vectorgaming.vcore.framework.VertexAPI;
 import net.vectorgaming.vcore.framework.VertexPlugin;
 import net.vectorgaming.vcore.framework.commands.CommandManager;
 import org.bukkit.Bukkit;
@@ -53,11 +52,4 @@ public class ArenaSigns extends VertexPlugin
     {
         return this;
     }
-
-    @Override
-    public VertexAPI getAPI()
-    {
-        return api;
-    }
-    
 }
