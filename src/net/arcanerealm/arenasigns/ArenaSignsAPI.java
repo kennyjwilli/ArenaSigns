@@ -3,8 +3,6 @@ package net.arcanerealm.arenasigns;
 
 import java.util.ArrayList;
 import net.arcanerealm.arenasigns.framework.ArenaSign;
-import net.vectorgaming.vcore.framework.VertexAPI;
-import net.vectorgaming.vcore.framework.VertexPlugin;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 
@@ -12,13 +10,19 @@ import org.bukkit.block.Block;
  *
  * @author Kenny
  */
-public class ArenaSignsAPI extends VertexAPI
+public class ArenaSignsAPI
 {
     private static final ArrayList<ArenaSign> signs = new ArrayList<>();
+    private static ArenaSigns plugin;
     
-    public ArenaSignsAPI(VertexPlugin plugin)
+    public ArenaSignsAPI(ArenaSigns plugin)
     {
-        super(plugin);
+        ArenaSignsAPI.plugin = plugin;
+    }
+    
+    public static ArenaSigns getPlugin()
+    {
+        return plugin;
     }
     
     /**
